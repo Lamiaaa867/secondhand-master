@@ -37,4 +37,17 @@ export class ProductService {
     return from(setDoc(doc(this.firestore, 'listings', product?.id), product));
     
   }
+  // Check if product is in wishlist
+  productInWishlist(userId: string, productId: string): Observable<boolean> {
+    const wishlistDocRef = doc(this.firestore, `users/${userId}/wishlist/${productId}`);
+    return docData(wishlistDocRef).pipe(
+      map(data => !!data) // Convert to boolean
+    );
+  }
+  
+  addToWishlist(productId: string): Observable<any> {
+    const wishlistDocRef = doc(this.firestore, 'wishlist', productId);
+    const data = { productId, addedAt: new Date().toISOString() };
+    return from(setDoc(wishlistDocRef, data));
+  }
 }

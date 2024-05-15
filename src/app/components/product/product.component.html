@@ -10,18 +10,17 @@
                 <div class="selling-heading">
                     <a href="javascript:void(0)">{{ product?.title }}</a>
                 </div>
-               
-
                 <p>{{ product?.description }}</p>
                 <h3>
                     <span class="selling-amount">{{ product?.price }}</span>
                 </h3>
                 <div class="selling-button">
                     <a href="javascript:void(0);" class="cart-btn"><i class="fa fa-comment-dots"> Contact Seller</i></a>
-                    <button type="button" class="main-button">
-                        <a href=""><i class="fa fa-heart"></i></a>
-                     
-                    </button>
+                
+                    <a href="" (click)="product && addToWishlist(product.id)">
+                        <i class="fa fa-heart fa-2x" 
+                        ></i>
+                    </a>
                 </div>
             </div>
         </div>

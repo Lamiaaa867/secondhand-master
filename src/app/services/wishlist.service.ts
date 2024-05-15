@@ -1,8 +1,8 @@
 // wishlist.service.ts
 
 import { Injectable } from '@angular/core';
-import { Firestore , collection, deleteDoc, doc, getDocs, query, setDoc } from '@angular/fire/firestore';
-import { Observable, from } from 'rxjs';
+import { Firestore , collection, deleteDoc, doc, docData, getDocs, query, setDoc } from '@angular/fire/firestore';
+import { Observable, from, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +11,16 @@ export class WishlistService {
 
   constructor(private firestore: Firestore) { }
 
-  addToWishlist(userId: string, itemId: string): Promise<void> {
-     // Reference to the user's wishlist document
-     const wishlistDocRef = doc(this.firestore, `users/${userId}/wishlist/${itemId}`);
+  productInWishlist(userId: string, productId: string): Observable<boolean> {
+    // Construct the Firestore document reference for the product in the user's wishlist
+    const wishlistDocRef = doc(this.firestore, `users/${userId}/wishlist/${productId}`);
     
-     // Data to be set in the wishlist document
-     const data = {
-       itemId: itemId,
-       addedAt: new Date().toISOString()
-     };
- 
-     // Set the document with the specified data
-     return setDoc(wishlistDocRef, data);
-   }
+    // Retrieve the document data as an observable
+    return docData(wishlistDocRef).pipe(
+      // Map the document data to a boolean value indicating whether the product is in the wishlist
+      map(data => !!data) // Convert to boolean
+    );
+  }
   
   getWishlist(userId: string): Observable<any[]> {
      // Reference to the user's wishlist collection

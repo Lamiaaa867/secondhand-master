@@ -24,17 +24,9 @@ export class WishlistComponent implements OnInit {
   }
 
   
-    addItemToWishlist(itemId: string): void {
-        // Assuming you have itemId available
-        const userId = 'your-user-id';
-        this.wishlistService.addToWishlist(userId, itemId).then(() => {
-          console.log('Item added to wishlist successfully.');
-        }).catch(error => {
-          console.error('Error adding item to wishlist:', error);
-        });
-      }
+    
   
-      editItemInWishlist(itemId: string, newItemId: string): void {
+     /* editItemInWishlist(itemId: string, newItemId: string): void {
         // Assuming you have userId available
         const userId = 'your-user-id';
         this.wishlistService.removeFromWishlist(userId, itemId).then(() => {
@@ -44,9 +36,9 @@ export class WishlistComponent implements OnInit {
         }).catch(error => {
           console.error('Error removing item from wishlist:', error);
         });
-      }
+      }*/
     
-      removeItemFromWishlist(itemId: string): void {
+      /*removeItemFromWishlist(itemId: string): void {
         // Assuming you have userId available
         const userId = 'your-user-id';
         this.wishlistService.removeFromWishlist(userId, itemId).then(() => {
@@ -54,5 +46,6 @@ export class WishlistComponent implements OnInit {
         }).catch(error => {
           console.error('Error removing item from wishlist:', error);
         });
-      }
+      }*/
+      
     }
