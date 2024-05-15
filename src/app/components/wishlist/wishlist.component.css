@@ -1,0 +1,31 @@
+
+.wishlist-container {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .wishlist-items {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .wishlist-items li {
+    margin-bottom: 10px;
+  }
+  
+  .wishlist-items li span {
+    margin-right: 10px;
+  }
+  
+  .wishlist-items li button {
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .wishlist-items li button:hover {
+    background-color: #0056b3;
+  }

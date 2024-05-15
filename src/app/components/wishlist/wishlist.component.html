@@ -1,0 +1,11 @@
+<!-- wishlist.component.html -->
+<div class="wishlist-container">
+  <h2>My Wishlist</h2>
+  <ul class="wishlist-items">
+    <li *ngFor="let item of wishlistItems">
+      <span>{{ item.name }}</span>
+      <button (click)="editItemInWishlist(item.id, 'newItemId')">Edit</button>
+      <button (click)="removeItemFromWishlist(item.id)">Remove</button>
+    </li>
+  </ul>
+</div>

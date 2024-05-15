@@ -1,0 +1,29 @@
+<section class="product-details">
+    <div class="container">
+        <div class="product-details-container">
+            <div class="selling-col-2">
+                <div class="selling-img">
+                    <img [src]="product?.imageUrl" alt="product">
+                </div>
+            </div>
+            <div class="selling-col-3">
+                <div class="selling-heading">
+                    <a href="javascript:void(0)">{{ product?.title }}</a>
+                </div>
+               
+
+                <p>{{ product?.description }}</p>
+                <h3>
+                    <span class="selling-amount">{{ product?.price }}</span>
+                </h3>
+                <div class="selling-button">
+                    <a href="javascript:void(0);" class="cart-btn"><i class="fa fa-comment-dots"> Contact Seller</i></a>
+                    <button type="button" class="main-button">
+                        <a href=""><i class="fa fa-heart"></i></a>
+                     
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
